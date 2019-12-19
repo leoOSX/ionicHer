@@ -1,5 +1,7 @@
 {
   "name": "ionicHer",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
