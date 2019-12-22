@@ -1,36 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 
-import { MenuController } from '@ionic/angular';
-
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/models/user';
+import { Plan } from 'src/app/models/plan';
 
 import { DataService } from '../../services/data.service';
 import { EnvService } from '../../services/env.service';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.page.html',
-  styleUrls: ['./dashboard.page.scss'],
+  selector: 'app-planes',
+  templateUrl: './planes.page.html',
+  styleUrls: ['./planes.page.scss'],
 })
-export class DashboardPage implements OnInit {
+export class PlanesPage implements OnInit {
 
   user: User;
   result: Observable<any>;
-  constructor(
-    private menu: MenuController, 
-    private authService: AuthService,
 
+  constructor(
+    private authService: AuthService,
     private dataService: DataService,
     private env: EnvService
-    ) { 
-    this.menu.enable(true);
-    
-  }
+  ) { }
 
   ngOnInit() {
-    this.result = this.dataService.getProductos();
+    // this.result = this.dataService.getPlanes();
+    this.result = this.dataService.getPlanes_by_cliente(3);
   }
 
   ionViewWillEnter() {
@@ -42,6 +38,3 @@ export class DashboardPage implements OnInit {
   }
 
 }
-
-
-

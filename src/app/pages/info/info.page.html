@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Acerca de</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+
+  <ion-list *ngFor="let data of result | async">
+    <ion-item>
+      <ion-icon slot="start" name="body"></ion-icon>
+      <ion-label>
+        <h2>Misión</h2>
+        <p>{{data.mision}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="happy"></ion-icon>
+      <ion-label>
+        <h2>Visión</h2>
+        <p>{{data.vision}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="pin"></ion-icon>
+      <ion-label>
+        <h2>Dirección</h2>
+        <p>{{data.direccion}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="call"></ion-icon>
+      <ion-label>
+        <h2>Teléfono</h2>
+        <p>{{data.telefono}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="globe"></ion-icon>
+      <ion-label>
+        <h2>Web</h2>
+        <p>{{data.web}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="mail"></ion-icon>
+      <ion-label>
+        <h2>Email</h2>
+        <p>{{data.email}}</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon slot="start" name="contact"></ion-icon>
+      <ion-label>
+        <h2>Contácto</h2>
+        <p>{{data.contacto}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+
+
+</ion-content>

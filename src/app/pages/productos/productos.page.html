@@ -7,19 +7,19 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <div *ngIf="user != undefined">
-      Bienvenido {{ user["name"] }}
-  </div>
+<ion-content>
+
+
   <ion-card *ngFor="let item of result | async">
     <img src="{{env.API_URL_IMAGE}}{{item.foto}}" />
     <ion-item lines="none">
       <ion-label color="primary">{{ item.nombre }}</ion-label>
       <!-- <ion-icon slot="end" name="more"></ion-icon> -->
     </ion-item>
-    <ion-card-content class="card-content">
+    <ion-card-content class="card-content" color="light">
       <p><b>Presentacion: </b>{{ item.presentacion }}</p>
       <p><b>Precio: </b>{{ item.precio }}</p>
     </ion-card-content>
   </ion-card>
+
 </ion-content>

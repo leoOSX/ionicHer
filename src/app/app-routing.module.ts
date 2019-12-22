@@ -15,6 +15,27 @@ const routes: Routes = [
   { path: 'dashboard', loadChildren: './pages/dashboard/dashboard.module#DashboardPageModule', canActivate: [AuthGuard] },
   { path: 'home', loadChildren: './home/home.module#HomePageModule', canActivate: [AuthGuard] },
   { path: 'list', loadChildren: './list/list.module#ListPageModule', canActivate: [AuthGuard] },
+  {
+    path: 'planes',
+    loadChildren: () => import('./pages/planes/planes.module').then( m => m.PlanesPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'metas',
+    loadChildren: () => import('./pages/metas/metas.module').then( m => m.MetasPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'productos',
+    loadChildren: () => import('./pages/productos/productos.module').then( m => m.ProductosPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'info',
+    loadChildren: () => import('./pages/info/info.module').then( m => m.InfoPageModule),
+    canActivate: [AuthGuard]
+  },
+
 ];
 
 @NgModule({
