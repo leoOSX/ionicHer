@@ -8,10 +8,11 @@
 </ion-header>
 
 <ion-content>
-  <!-- <div *ngIf="user != undefined">
+  <div *ngIf="user != undefined">
     Bienvenido {{ user["name"]  }}
     <p>El id del usuario {{ user["id"]  }}</p>
-  </div> -->
+    
+  </div>
 
   <ion-card *ngFor="let item of result | async">
     <ion-card-content class="card-content">

@@ -6,7 +6,8 @@ import { Plan } from 'src/app/models/plan';
 
 import { DataService } from '../../services/data.service';
 import { EnvService } from '../../services/env.service';
-import { Observable } from 'rxjs';
+import { Observable, pipe } from 'rxjs';
+import { async } from 'rxjs/internal/scheduler/async';
 
 @Component({
   selector: 'app-planes',
@@ -15,6 +16,7 @@ import { Observable } from 'rxjs';
 })
 export class PlanesPage implements OnInit {
 
+  id : Number;
   user: User;
   result: Observable<any>;
 
@@ -26,10 +28,22 @@ export class PlanesPage implements OnInit {
 
   ngOnInit() {
     // this.result = this.dataService.getPlanes();
-    this.result = this.dataService.getPlanes_by_cliente(this.user.id);
+    this.authService.user().subscribe(
+      user => {
+        this.user = user;
+      }
+    );
+
+    console.log(this.user);
+    this.listPlans();
+  }
+
+  listPlans(){
+    this.result = this.dataService.getPlanes_by_cliente(this.get_id_user());
   }
 
   ionViewWillEnter() {
+    console.log("llegando");
     this.authService.user().subscribe(
       user => {
         this.user = user;
@@ -37,4 +51,20 @@ export class PlanesPage implements OnInit {
     );
   }
 
+  getUser() {
+    this.authService.user().subscribe(
+      user => {
+        this.user = user;
+      }
+    );
+  }
+
+  get_id_user(): Number {
+    this.authService.user().subscribe(
+      user => {
+        return this.id = user.id;
+      }
+    );
+    return this.user.id;
+  }
 }
