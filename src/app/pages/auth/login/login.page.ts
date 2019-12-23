@@ -41,7 +41,7 @@ export class LoginPage implements OnInit {
 
   // Dismiss Login Modal
   dismissLogin() {
-    this.modalController.dismiss();
+    //this.modalController.dismiss();
   }
 
   // On Register button tap, dismiss login modal and open register modal

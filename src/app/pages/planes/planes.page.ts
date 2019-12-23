@@ -27,30 +27,11 @@ export class PlanesPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.result = this.dataService.getPlanes();
-    this.authService.user().subscribe(
-      user => {
-        this.user = user;
-      }
-    );
-
-    console.log(this.user);
-    this.listPlans();
+    this.getUser();
   }
-
   listPlans(){
-    this.result = this.dataService.getPlanes_by_cliente(this.get_id_user());
+    this.result = this.dataService.getPlanes_by_cliente(this.user.id);
   }
-
-  ionViewWillEnter() {
-    console.log("llegando");
-    this.authService.user().subscribe(
-      user => {
-        this.user = user;
-      }
-    );
-  }
-
   getUser() {
     this.authService.user().subscribe(
       user => {
@@ -59,12 +40,12 @@ export class PlanesPage implements OnInit {
     );
   }
 
-  get_id_user(): Number {
-    this.authService.user().subscribe(
-      user => {
-        return this.id = user.id;
-      }
-    );
-    return this.user.id;
-  }
+  // get_id_user(): Number {
+  //   this.authService.user().subscribe(
+  //     user => {
+  //       return this.id = user.id;
+  //     }
+  //   );
+  //   return this.user.id;
+  // }
 }

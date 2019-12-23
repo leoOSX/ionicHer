@@ -3,18 +3,29 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>planes</ion-title>
+    <ion-title>Mis planes</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div *ngIf="user != undefined">
-    Bienvenido {{ user["name"]  }}
-    <p>El id del usuario {{ user["id"]  }}</p>
-    
+
+  <div align="center">
+    <ion-button (click)="listPlans()" class="ion-padding">
+      Listar
+      <ion-icon slot="start" name="download"></ion-icon>
+    </ion-button>
   </div>
 
-  <ion-card *ngFor="let item of result | async">
+  <!-- <div *ngIf="user != undefined">
+    Bienvenido {{ user["name"]  }}
+    <p>El id del usuario {{ user["id"]  }}</p>
+  </div> -->
+
+  <ion-item-divider>
+    <ion-label>Planes registrados</ion-label>
+  </ion-item-divider>
+
+  <ion-card *ngFor="let item of result | async" class="ion-padding">
     <ion-card-content class="card-content">
       <p><b>Fecha Inicio: </b>{{ item.fecha_inicio }}</p>
       <p><b>Fecha Fin: </b>{{ item.fecha_fin }}</p>
