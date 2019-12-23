@@ -26,7 +26,7 @@ export class PlanesPage implements OnInit {
 
   ngOnInit() {
     // this.result = this.dataService.getPlanes();
-    this.result = this.dataService.getPlanes_by_cliente(3);
+    this.result = this.dataService.getPlanes_by_cliente(this.user.id);
   }
 
   ionViewWillEnter() {
