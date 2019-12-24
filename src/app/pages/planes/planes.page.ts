@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/models/user';
-import { Plan } from 'src/app/models/plan';
 
 import { DataService } from '../../services/data.service';
 import { EnvService } from '../../services/env.service';

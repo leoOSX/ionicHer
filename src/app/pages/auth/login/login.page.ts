@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, MenuController, Platform, NavController, ToastController } from '@ionic/angular';import { RegisterPage } from '../register/register.page';
+import { ModalController, MenuController, Platform, NavController, ToastController } from '@ionic/angular';
+import { RegisterPage } from '../register/register.page';
 import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';

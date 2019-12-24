@@ -7,7 +7,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="bg">
 
   <div align="center">
     <ion-button (click)="listPlans()" class="ion-padding">
@@ -21,11 +21,11 @@
     <p>El id del usuario {{ user["id"]  }}</p>
   </div> -->
 
-  <ion-item-divider>
+  <ion-item-divider color="bg">
     <ion-label>Planes registrados</ion-label>
   </ion-item-divider>
 
-  <ion-card *ngFor="let item of result | async" class="ion-padding">
+  <ion-card *ngFor="let item of result | async" class="ion-padding" color="white">
     <ion-card-content class="card-content">
       <p><b>Fecha Inicio: </b>{{ item.fecha_inicio }}</p>
       <p><b>Fecha Fin: </b>{{ item.fecha_fin }}</p>

@@ -1,9 +1,80 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>metas</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Mis metas</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="bg">
+
+  <div align="center">
+    <ion-button (click)="list()" class="ion-padding">
+      Listar
+      <ion-icon slot="start" name="download"></ion-icon>
+    </ion-button>
+  </div>
+
+  <ion-item-divider color="bg">
+    <ion-label>
+      <p><b>Metas</b></p>
+      <p>Fecha actual: {{myDate}}</p>
+    </ion-label>
+  </ion-item-divider>
+
+  <ion-card *ngFor="let item of result | async" class="ion-padding" color="white">
+    <ion-card-content class="card-content">
+
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8">
+            <p><b>Fecha: </b>{{ item.fecha }}</p>
+            <!-- <h2 *ngIf="item.verificado ==='REALIZADO'">true</h2> -->
+            <div [ngSwitch]="item.verificado">
+              <ion-text *ngSwitchCase="'REALIZADO'" color="success">
+                <p><b>Estado: </b>{{ item.verificado }}</p>
+              </ion-text>
+              <ion-text *ngSwitchCase="'PENDIENTE'" color="warning">
+                <p><b>Estado: </b>{{ item.verificado }}</p>
+              </ion-text>
+              <ion-text *ngSwitchCase="'VENCIDO'" color="danger">
+                <p><b>Estado: </b>{{ item.verificado }}</p>
+              </ion-text>
+            </div>
+          </ion-col>
+          <ion-col size="4">
+            <div align="center">
+              <!-- <ion-checkbox mode="ios" disabled="true" checked="true" color="primary"></ion-checkbox>
+              <ion-checkbox mode="ios" disabled="true" checked="true" color="warning"></ion-checkbox>
+              <ion-checkbox mode="ios" disabled="true" checked="true" color="danger"></ion-checkbox>
+              <ion-checkbox mode="ios" disabled="true" checked="true" color="medium"></ion-checkbox>
+              <ion-checkbox mode="ios" disabled="true" color="medium"></ion-checkbox> -->
+
+              <div [ngSwitch]="item.verificado">
+                <ion-text *ngSwitchCase="'REALIZADO'">
+                  <ion-icon name="checkmark-circle" color="success" class="icon-big"></ion-icon>
+                </ion-text>
+                <ion-text *ngSwitchCase="'VENCIDO'">
+                  <ion-icon name="close-circle" color="danger" class="icon-big"></ion-icon>
+                </ion-text>
+                <ion-text *ngSwitchCase="'PENDIENTE'">
+                  <ion-icon name="help-circle" color="warning" class="icon-big"></ion-icon>
+                  <div *ngIf="item.fecha === myDate">
+
+                    <ion-button shape="round" expand="full" size="small" (click)="onClick(item.id)" color="secondary">
+                      <ion-icon slot="start" name="checkbox-outline"></ion-icon>
+                      Marcar
+                    </ion-button>
+                    <!-- <ion-checkbox mode="ios" color="medium" (click)="onClick(item.id)"></ion-checkbox> -->
+                  </div>
+                </ion-text>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>

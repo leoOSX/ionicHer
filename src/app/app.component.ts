@@ -32,6 +32,11 @@ export class AppComponent {
       url: '/info',
       icon: 'information-circle'
     },
+    {
+      title: 'Login',
+      url: '/login',
+      icon: 'log-in'
+    },
   ];
 
   constructor(
