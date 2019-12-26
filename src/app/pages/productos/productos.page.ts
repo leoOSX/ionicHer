@@ -11,8 +11,8 @@ export class ProductosPage implements OnInit {
 
   result: Observable<any>;
   constructor(
-    private dataService: DataService,
-    private env: EnvService
+    public dataService: DataService,
+    public env: EnvService
     ) { }
 
   ngOnInit() {

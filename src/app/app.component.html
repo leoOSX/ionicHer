@@ -2,15 +2,22 @@
   <ion-split-pane>
     <ion-menu>
       <ion-header>
-        <ion-toolbar color="primary">
+        <ion-toolbar color="primary" class="ion-padding">
           <ion-title>Menú</ion-title>
+          <ion-text color="white">
+
+            <div *ngIf="user != undefined">
+              {{ user.name }}
+            </div>
+            Mi hora {{myTime}}
+          </ion-text>
         </ion-toolbar>
       </ion-header>
       <ion-content>
         <ion-list>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
             <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
-              <ion-icon color="primary"  slot="start" [name]="p.icon"></ion-icon>
+              <ion-icon color="primary" slot="start" [name]="p.icon"></ion-icon>
               <ion-label color="primary">
                 {{p.title}}
               </ion-label>

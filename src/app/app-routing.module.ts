@@ -13,8 +13,6 @@ const routes: Routes = [
   { path: 'register', loadChildren: './pages/auth/register/register.module#RegisterPageModule' },
   
   { path: 'dashboard', loadChildren: './pages/dashboard/dashboard.module#DashboardPageModule', canActivate: [AuthGuard] },
-  { path: 'home', loadChildren: './home/home.module#HomePageModule', canActivate: [AuthGuard] },
-  { path: 'list', loadChildren: './list/list.module#ListPageModule', canActivate: [AuthGuard] },
   {
     path: 'planes',
     loadChildren: () => import('./pages/planes/planes.module').then( m => m.PlanesPageModule),

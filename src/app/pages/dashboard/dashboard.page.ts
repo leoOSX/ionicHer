@@ -22,8 +22,8 @@ export class DashboardPage implements OnInit {
     private menu: MenuController, 
     private authService: AuthService,
 
-    private dataService: DataService,
-    private env: EnvService
+    public dataService: DataService,
+    public env: EnvService
     ) { 
     this.menu.enable(true);
     
