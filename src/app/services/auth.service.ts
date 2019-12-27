@@ -42,11 +42,11 @@ export class AuthService {
     );
   }
 
-  register(fName: String, email: String, password: String) {
+/*   register(fName: String, email: String, password: String) {
     return this.http.post(this.env.API_URL + 'auth/register',
       {nombre_completo: fName, email: email, password: password}
     )
-  }
+  } */
 
   logout() {
     const headers = new HttpHeaders({
